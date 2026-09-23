@@ -1,0 +1,39 @@
+name: Update request
+about: Request a new app/language update ingestion
+labels: ["update"]
+title: "[Update]: "
+body:
+  - type: dropdown
+    id: target
+    attributes:
+      label: Target
+      options:
+        - App
+        - Language
+        - Both
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "ex: 1.2.3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: artifact
+    attributes:
+      label: Artifact URL
+      description: Direct link to release artifact.
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Release notes
+      description: Main highlights for this update.
+    validations:
+      required: true

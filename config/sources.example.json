@@ -1,0 +1,8 @@
+{
+  "app": {
+    "url": "https://example.com/fresh/app/manifest.json"
+  },
+  "language": {
+    "url": "https://example.com/fresh/language/manifest.json"
+  }
+}
