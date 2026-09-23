@@ -1,0 +1,27 @@
+name: Release Manifests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate manifests
+        run: ./scripts/validate-manifests.sh
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: manifests-${{ github.run_number }}
+          name: Manifests ${{ github.run_number }}
+          body: |
+            Automated manifest release.
+          files: |
+            updates/app/manifest.json
+            updates/runtime/manifest.json
